@@ -44,10 +44,12 @@ class UserListComponent extends Component{
         this.setState({
           message: 'User Deleted Successfully.'
         });
+        //filter를 이용해 방금 삭제한 userID를 제외하고 배열을 다시 구성한다.
         this.setState({
           users: this.state.users.filter( user =>
             user.id !== userID)
           });
+          console.log(res.data);
         })
       .catch(err => {
         console.log('deleteUser() Error!', err);
@@ -74,9 +76,9 @@ class UserListComponent extends Component{
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>FistName</TableCell>
-              <TableCell align="right">LastName</TableCell>
-              <TableCell align="right">UserName</TableCell>
+              <TableCell align = "center">FistName</TableCell>
+              <TableCell align="center">LastName</TableCell>
+              <TableCell align="center">UserName</TableCell>
               <TableCell align="right">Age</TableCell>
               <TableCell align="right">Salary</TableCell>
               <TableCell align="right">Edit</TableCell>
@@ -87,9 +89,9 @@ class UserListComponent extends Component{
             {this.state.users.map( user => 
               <TableRow key={user.id}>
                 <TableCell component="th" scope="user">{user.id}</TableCell>
-                <TableCell align="right">{user.firstName}</TableCell>
-                <TableCell align="right">{user.lastName}</TableCell>
-                <TableCell align="right">{user.username}</TableCell>
+                <TableCell align="center">{user.firstName}</TableCell>
+                <TableCell align="center">{user.lastName}</TableCell>
+                <TableCell align="center">{user.username}</TableCell>
                 <TableCell align="right">{user.age}</TableCell>
                 <TableCell align="right">{user.salary}</TableCell>
                 <TableCell align="right" onClick={()=> this.editUser(user.id)}>

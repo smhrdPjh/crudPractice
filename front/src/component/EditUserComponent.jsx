@@ -21,6 +21,7 @@ class EditUserComponent extends Component{
     }
   }
 
+
   componentDidMount(){
     this.loadUser();
   }
